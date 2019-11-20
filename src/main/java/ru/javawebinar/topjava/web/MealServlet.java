@@ -26,7 +26,7 @@ public class MealServlet extends HttpServlet {
         List<Meal> meals = new ArrayList<>();
         meals.add(new Meal(LocalDateTime.of(2015, Month.MAY, 30, 10, 0), "Завтрак", 500));
 
-
-        response.sendRedirect("meals.jsp");
+        request.setAttribute("meals", meals);
+        request.getRequestDispatcher("meals.jsp").forward(request, response);
     }
 }
